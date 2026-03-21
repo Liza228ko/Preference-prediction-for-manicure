@@ -2,7 +2,7 @@
 **Course:** Undergraduate AI Capstone (NYCU Spr2026)  
 **Student Name:** Yelyzaveta Kozachenko  
 **Student ID:** [YOUR_STUDENT_ID]  
-**Dataset Link:** [YOUR_GITHUB_LINK_HERE]
+**Dataset Link:** https://github.com/Liza228ko/Preference-prediction-for-manicure.git
 
 ---
 
