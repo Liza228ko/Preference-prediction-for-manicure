@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+.env
+
+# Ignore large raw images not part of the final dataset
+raw_images/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
