@@ -7,11 +7,11 @@
 ---
 
 ## 1. Research Question and Motivation
-**Motivation:**  
-In this homework, I wanted to create a dataset of preferences and then I tried what is better: my own features (semantic tags) or the CNN models. In the future, this model that knows my nail preferences can be used to help me in finding the design for my next nails.
-
 **Research Question:**  
 Can machine learning models effectively distinguish personal aesthetic preferences in manicure designs by comparing high-level semantic features (Method 1) against low-level pixel data (Method 2)?
+
+**Motivation:**  
+In this homework, I wanted to create a dataset of my own manicure preferences to see if AI could actually understand my personal taste. Aesthetics are very subjective, and I was curious to find out what would work better for such a small, personal dataset: high-level semantic features that I define myself (like color, shape, and design) or deep learning CNN models that look at raw pixels. Building this dataset was also a practical goal for me; since I often struggle to choose my next nail design, a model that truly knows my preferences could eventually serve as a personalized assistant to help me filter through thousands of online images and find exactly what I like for my next appointment.
 
 ---
 
