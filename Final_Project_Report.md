@@ -55,13 +55,17 @@ Can machine learning models effectively distinguish personal aesthetic preferenc
 
 ## 3. Description of Methods
 ### Method 1: Linear SVM with Semantic Features (Classical ML)
-- **Feature Engineering:** Categorical tags were converted into numerical data using **One-Hot Encoding**.
-- **Algorithm:** Support Vector Machine (SVM) with a **Linear Kernel** (via Scikit-Learn).
-- **Rationale:** The linear kernel allows for "Feature Importance" analysis, revealing which specific descriptors drive the preference model.
+- **Feature Engineering:** Categorical tags (Length, Color, Design, Shape) were converted into numerical vectors using **One-Hot Encoding**. This process expanded the sparse feature space, allowing the model to treat each attribute (e.g., "nude" or "matte") as an independent dimension.
+- **Algorithm:** Support Vector Machine (SVM) with a **Linear Kernel** (via Scikit-Learn's `SVC`). The linear kernel was chosen to find the optimal separating hyperplane in the high-dimensional tag space while maintaining high interpretability.
+- **Implementation Details:** The model was trained with probability estimation enabled to allow for AUROC calculation. To ensure the results were not due to an advantageous data split, I used **5-Fold Cross-Validation** to assess the model's stability across the entire dataset.
+- **Rationale:** The linear kernel allows for direct "Feature Importance" analysis by extracting the mathematical weights (coefficients) assigned to each one-hot encoded tag, revealing exactly which attributes drive the preference model.
 
 ### Method 2: Fine-Tuned ResNet-18 (Deep Learning)
-- **Algorithm:** ResNet-18 (via PyTorch).
-- **Transfer Learning:** Used weights pre-trained on ImageNet and **unfroze the final residual block (layer4)** of the ResNet.
+- **Algorithm:** ResNet-18 architecture implemented via PyTorch. 
+- **Preprocessing & Augmentation:** Images were resized to **224x224 pixels** and normalized using ImageNet mean and standard deviation. To prevent overfitting on the small dataset, I applied **Data Augmentation**, including random horizontal flips and random rotations up to 20 degrees.
+- **Architecture Modification:** I utilized **Transfer Learning** with weights pre-trained on ImageNet. The original 1000-class fully connected head was replaced with a new linear layer consisting of 2 output nodes (Yes/No).
+- **Fine-Tuning Strategy:** I employed a partial freezing strategy where the early convolutional layers were frozen to retain general visual knowledge (edges, textures), while the **final residual block (layer4)** and the classification head were unfrozen for domain-specific fine-tuning.
+- **Training Setup:** The model was optimized using **Stochastic Gradient Descent (SGD)** with a momentum of 0.9 and a learning rate of 0.001, minimizing **Cross-Entropy Loss** over 12 epochs.
 
 ---
 
