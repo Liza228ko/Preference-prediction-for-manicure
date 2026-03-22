@@ -1,4 +1,4 @@
-# NailSense: Personalized Aesthetic Preference Dataset
+Personalized Aesthetic Preference Dataset
 
 This repository contains a custom-built dataset and classification models for predicting personal aesthetic preferences in manicure designs. This project was developed for the **Artificial Intelligence** course (NYCU Spr2026).
 
